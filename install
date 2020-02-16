@@ -8,4 +8,4 @@ cp dict ~/bin/dict
 cp dict.rb ~/lib/dictionary/dict.rb
 cp dict.txt ~/var/dictionary/dict.txt
 cp help.txt ~/var/dictionary/help.txt
-touch ~/log/dictionary.log
+touch ~/log/dictionary/dictionary.log
