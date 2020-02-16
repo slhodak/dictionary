@@ -2,7 +2,7 @@
 
 Command-line reference material. Save your own definitions and look them up with minimal friction.
 
-### Installation & Uninstallation
+### Installation & Uninstallation (Mac OS)
 Within a clone of this repo, run `./install` or `./uninstall`  
 Add `~/bin` to your $PATH  
 
