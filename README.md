@@ -15,7 +15,7 @@ To open and edit the dictionary:
 `dict open`  
 
 When editing the dictionary:  
-Type a word or phrase (not case-sensitive) that needs a definition, followed by a colon. On the next line, enter its definition.  
+Type a word or phrase that needs a definition, followed by a colon. On the next line, enter its definition.  
 Leave a blank line between definitions, but never within one.  
 
 To see the debug logs:  
