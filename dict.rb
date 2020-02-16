@@ -1,7 +1,6 @@
 PATHS = {
-  TEXT_PATH: '/Users/samhodak/var/dictionary/dict.txt',
-  LOG_PATH: '/Users/samhodak/log/dictionary.log',
-  PROGRAM_PATH: File.expand_path(__FILE__)
+  TEXT_PATH: File.expand_path('~/var/dictionary/dict.txt'),
+  LOG_PATH: File.expand_path('~/log/dictionary.log')
 }.freeze
 
 def log(point: '', error: false, finished: false)
@@ -39,9 +38,9 @@ end
 
 begin
   if ARGV[0] == 'open'
-    system('open -a TextEdit /Users/samhodak/var/dictionary/dict.txt')
+    system("open -a TextEdit #{PATHS[:TEXT_PATH]}")
   elsif ARGV[0] == 'logs'
-    system('open -a TextEdit /Users/samhodak/log/dictionary.log')
+    system("open -a TextEdit #{PATHS[:LOG_PATH]}")
   elsif ARGV[0] == 'help'
     puts help
   elsif ARGV[0] == 'print'
