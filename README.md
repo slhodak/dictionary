@@ -1,6 +1,6 @@
 # Dictionary
 
-Command-line reference materials. Save your own definitions and look them up with minimal friction.
+Command-line reference material. Save your own definitions and look them up with minimal friction.
 
 ### Installation & Uninstallation
 Within a clone of this repo, run `./install` or `./uninstall`  
