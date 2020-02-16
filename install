@@ -1,8 +1,11 @@
 #!/bin/bash
 
 [[ ! -d ~/bin ]] && mkdir ~/bin
-[[ ! -d ~/log ]] && mkdir ~/log
-mkdir -p ~/lib/dictionary
+[[ ! -d ~/lib/dictionary ]] && mkdir -p ~/lib/dictionary
+[[ ! -d ~/var/dictionary ]] && mkdir -p ~/var/dictionary
+[[ ! -d ~/log/dictionary ]] && mkdir -p ~/log/dictionary
 cp dict ~/bin/dict
 cp dict.rb ~/lib/dictionary/dict.rb
+cp dict.txt ~/var/dictionary/dict.txt
+cp help.txt ~/var/dictionary/help.txt
 touch ~/log/dictionary.log

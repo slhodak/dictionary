@@ -1,5 +1,6 @@
 PATHS = {
   TEXT_PATH: File.expand_path('~/var/dictionary/dict.txt'),
+  HELP_PATH: File.expand_path('~/var/dictionary/help.txt'),
   LOG_PATH: File.expand_path('~/log/dictionary.log')
 }.freeze
 
@@ -13,36 +14,13 @@ def log(point: '', error: false, finished: false)
   logfile.close
 end
 
-def help
-  "Dictionary\n\n"\
-  "To get a definition:\n"\
-  "\s\sdict <word>\n"\
-  "\s\sWhere <word> is the word you want the definition of. Words are not case-sensitive.\n"\
-  "To open the dictionary:\n"\
-  "\s\sdict open\n"\
-  "When editing the dictionary:\n"\
-  "\s\sType a word or phrase (not case-sensitive) that needs a definition, followed by a ':'.\n"\
-  "\s\sOn the next line, enter its definition.\n"\
-  "\s\sLeave a blank line between definitions, but never within a single definition.\n\n"\
-  "~~Example~~\n"\
-  "Traunch:\n"\
-  "one of a series of payments to be paid out over a specified period,\nsubject to certain performance metrics being achieved. It is commonly used\nin venture capital (VC) circles to refer to the fundraising rounds used to fund startup companies.\n"\
-  "\n"\
-  "Another definition:\n"\
-  "This would be the second definition in the dictionary. And so on...\n"\
-  "~~~~\n\n"\
-  "To see the debug logs:\n"\
-  "\s\sdict logs\n\n"\
-  "Happy Studying!"
-end
-
 begin
   if ARGV[0] == 'open'
     system("open -a TextEdit #{PATHS[:TEXT_PATH]}")
   elsif ARGV[0] == 'logs'
     system("open -a TextEdit #{PATHS[:LOG_PATH]}")
   elsif ARGV[0] == 'help'
-    puts help
+    system("cat #{PATHS[:HELP_PATH]}")
   elsif ARGV[0] == 'print'
     system("cat #{PATHS[:TEXT_PATH]}")
   else
