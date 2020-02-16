@@ -22,7 +22,7 @@ To see the debug logs:
 `dict logs`
 #### Example Entries
 ```
-Traunch:  
+Tranche:  
 one of a series of payments to be paid out over a specified period,
 subject to certain performance metrics being achieved. It is commonly used in
 venture capital (VC) circles to refer to the fundraising rounds used to fund startup
