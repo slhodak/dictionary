@@ -1,0 +1,8 @@
+#!/bin/bash
+
+[[ ! -d ~/bin ]] && mkdir ~/bin
+[[ ! -d ~/log ]] && mkdir ~/log
+mkdir -p ~/lib/dictionary
+cp dict ~/bin/dict
+cp dict.rb ~/lib/dictionary/dict.rb
+touch ~/log/dictionary.log
