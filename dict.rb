@@ -12,6 +12,17 @@ def read_dict(argument: '')
   dict
 end
 
+def parse_dict(dict_string: '')
+  definitions = dict_string.split(/\n\n/)
+  dictionary = {}
+  definitions.each do |definition|
+    log(point: 'Iterating through definitions')
+    pair = definition.split(/\:\n/)
+    dictionary[pair[0].downcase] = { value: pair[1], key: pair[0] }
+  end
+  dictionary
+end
+
 def log(point: '', error: false, finished: false)
   logfile = File.open(PATHS[:LOG_PATH], 'a')
   if error
@@ -24,7 +35,8 @@ end
 
 def search(term: '')
   log(point: "Searching for #{argument}")
-  puts "Searching for #{argument}"
+  dict_string = read_dict
+
   log(point: "Completed search for #{argument}", finished: true)
 end
 
@@ -57,13 +69,7 @@ begin
     log(point: "Looking for #{ARGV[0]}")
     dict_string = read_dict
 
-    definitions = dict_string.split(/\n\n/)
-    dictionary = {}
-    definitions.each do |definition|
-      log(point: 'Iterating through definitions')
-      pair = definition.split(/\:\n/)
-      dictionary[pair[0].downcase] = { value: pair[1], key: pair[0] }
-    end
+    dictionary = parse_dict(dict_string: dict_string)
 
     unless dictionary[ARGV[0].downcase]
       puts "No entry '#{ARGV[0]}' in the dictionary. To add it, open the dictionary with the command 'dict open'"
