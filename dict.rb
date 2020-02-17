@@ -54,16 +54,12 @@ def handleSpecialCommands(argument: '')
   case argument
   when 'open'
     system("open -a TextEdit #{PATHS[:TEXT_PATH]}")
-    true
   when 'logs'
     system("open -a TextEdit #{PATHS[:LOG_PATH]}")
-    true
   when 'help'
     system("cat #{PATHS[:HELP_PATH]}")
-    true
   when 'print'
     system("cat #{PATHS[:TEXT_PATH]}")
-    true
   else
     false
   end
