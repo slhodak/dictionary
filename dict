@@ -1,3 +1,6 @@
 #!/bin/bash
 
-bash -c "ruby ~/lib/dictionary/dict.rb $1"
+if [ -z "$2" ]
+then bash -c "ruby ~/lib/dictionary/dict.rb $1"
+else bash -c "ruby ~/lib/dictionary/dict.rb $1 $2"
+fi
