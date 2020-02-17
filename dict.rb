@@ -41,7 +41,7 @@ def search(term: '', keys_only: true)
     key.match?(/#{term}/i) || (entry[:value].match?(/#{term}/i) && !keys_only)
   end
   matches.each do |key, entry|
-    puts "#{key}#{": #{entry[:value]}" unless keys_only}"
+    puts "#{key}#{":\n#{entry[:value]}\n\n" unless keys_only}"
   end
   log(point: "Completed search for #{argument}", finished: true)
 end
