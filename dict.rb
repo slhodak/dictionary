@@ -33,15 +33,15 @@ def log(point: '', error: false, finished: false)
   logfile.close
 end
 
-def search(term: '')
+def search(term: '', keys_only: true)
   log(point: "Searching for #{term}")
   dict_string = read_dict
   dictionary = parse_dict(dict_string: dict_string)
   matches = dictionary.select do |key, entry|
-    key.match?(term)
+    key.match?(/#{term}/i) || (entry[:value].match?(/#{term}/i) && !keys_only)
   end
   matches.each do |key, entry|
-    puts key
+    puts "#{key}#{": #{entry[:value]}" unless keys_only}"
   end
   log(point: "Completed search for #{argument}", finished: true)
 end
@@ -51,6 +51,8 @@ def handleOption(option: '', argument: '')
   case option
   when '-s'
     search(term: argument)
+  when '-sa'
+    search(term: argument, keys_only: false)
   else
     puts "Unrecognized option: #{option}"
   end 
