@@ -14,6 +14,22 @@ def log(point: '', error: false, finished: false)
   logfile.close
 end
 
+def search(term: '')
+  log(point: "Searching for #{argument}")
+  puts "Searching for #{argument}"
+  log(point: "Completed search for #{argument}", finished: true)
+end
+
+def handleOption(option: '', argument: '')
+  log(point: 'Handling option')
+  case option
+  when '-s'
+    search(term: argument)
+  else
+    puts "Unrecognized option: #{option}"
+  end 
+end
+
 begin
   if ARGV[0] == 'open'
     system("open -a TextEdit #{PATHS[:TEXT_PATH]}")
@@ -23,6 +39,12 @@ begin
     system("cat #{PATHS[:HELP_PATH]}")
   elsif ARGV[0] == 'print'
     system("cat #{PATHS[:TEXT_PATH]}")
+  elsif ARGV[0].match?(/^-/)
+    if ARGV[1]
+      handleOption(option: ARGV[0], argument: ARGV[1])
+    else
+      puts 'No arguments given.'
+    end
   else
     log(point: "Looking for #{ARGV[0]}")
     dict = File.open(PATHS[:TEXT_PATH], 'r')
@@ -44,7 +66,7 @@ begin
       return
     end
 
-    puts "#{dictionary[ARGV[0]][:key]}:\n#{dictionary[ARGV[0].downcase][:value]}"
+    puts "#{dictionary[ARGV[0].downcase][:key]}:\n#{dictionary[ARGV[0].downcase][:value]}"
     log(point: "Printed result for '#{ARGV[0]}'. Happy Studying!", finished: true)
   end
 rescue StandardError => ex
