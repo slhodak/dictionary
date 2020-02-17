@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -d ~/lib/dictionary ]]
+then 
+  cp dict.rb ~/lib/dictionary/dict.rb
+else
+  echo "No such directory ~/lib/dictionary found, unable to update dict program."
+fi
+
+if [[ -d ~/var/dictionary ]]
+then
+  cp help.txt ~/var/dictionary/help.txt
+else
+  echo "No such directory ~/var/dictionary found, unable to update dict help document."
+fi
