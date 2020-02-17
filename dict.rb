@@ -55,7 +55,7 @@ def handleOption(option: '', argument: '')
     search(term: argument, keys_only: false)
   else
     puts "Unrecognized option: #{option}"
-  end 
+  end
 end
 
 def handleSpecialCommands(argument: '')
@@ -75,7 +75,6 @@ end
 
 begin
   argument = ARGV[0].gsub("'", '')
-  puts argument
   if handleSpecialCommands(argument: argument)
     return
   end
