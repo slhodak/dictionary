@@ -1,4 +1,6 @@
 Dictionary
+dict [ -sa ] [word]
+
 To get a definition:
   dict [word]
   Word lookup is not case-sensitive.
@@ -12,6 +14,12 @@ When editing the dictionary:
 
 To see the debug logs:
   dict logs
+
+Options:
+  -s
+    Search for entry names containing a given string.
+  -sa
+    Search as above while including entry values as well as names.
 
 ~~Example Entries~~
 
