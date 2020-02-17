@@ -6,6 +6,11 @@
 [[ ! -d ~/log/dictionary ]] && mkdir -p ~/log/dictionary
 cp dict ~/bin/dict
 cp dict.rb ~/lib/dictionary/dict.rb
-cp dict.txt ~/var/dictionary/dict.txt
+if [[ ! -f ~/var/dictionary/dict.txt ]]
+then
+  cp dict.txt ~/var/dictionary/dict.txt
+else
+  echo "Existing dictionary will not be overwritten."
+fi
 cp help.txt ~/var/dictionary/help.txt
 touch ~/log/dictionary/dictionary.log
