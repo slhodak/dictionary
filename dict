@@ -1,3 +1,3 @@
 #!/bin/bash
 
-bash -c "ruby /Users/samhodak/lib/dictionary/dict.rb $1"
+bash -c "ruby ~/lib/dictionary/dict.rb $1"
