@@ -4,6 +4,14 @@ PATHS = {
   LOG_PATH: File.expand_path('~/log/dictionary.log')
 }.freeze
 
+def read_dict(argument: '')
+  dict_file = File.open(PATHS[:TEXT_PATH], 'r')
+  dict = dict_file.read
+  log(point: 'Read dictionary')
+  dict_file.close
+  dict
+end
+
 def log(point: '', error: false, finished: false)
   logfile = File.open(PATHS[:LOG_PATH], 'a')
   if error
@@ -47,12 +55,9 @@ begin
     end
   else
     log(point: "Looking for #{ARGV[0]}")
-    dict = File.open(PATHS[:TEXT_PATH], 'r')
-    all_dict = dict.read
-    log(point: 'Read dictionary')
-    dict.close
+    dict_string = read_dict
 
-    definitions = all_dict.split(/\n\n/)
+    definitions = dict_string.split(/\n\n/)
     dictionary = {}
     definitions.each do |definition|
       log(point: 'Iterating through definitions')
