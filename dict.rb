@@ -50,16 +50,31 @@ def handleOption(option: '', argument: '')
   end 
 end
 
-begin
-  if ARGV[0] == 'open'
+def handleSpecialCommands(argument: '')
+  case argument
+  when 'open'
     system("open -a TextEdit #{PATHS[:TEXT_PATH]}")
-  elsif ARGV[0] == 'logs'
+    true
+  when 'logs'
     system("open -a TextEdit #{PATHS[:LOG_PATH]}")
-  elsif ARGV[0] == 'help'
+    true
+  when 'help'
     system("cat #{PATHS[:HELP_PATH]}")
-  elsif ARGV[0] == 'print'
+    true
+  when 'print'
     system("cat #{PATHS[:TEXT_PATH]}")
-  elsif ARGV[0].match?(/^-/)
+    true
+  else
+    false
+  end
+end
+
+begin
+  if handleSpecialCommands(argument: ARGV[0])
+    return
+  end
+
+  if ARGV[0].match?(/^-/)
     if ARGV[1]
       handleOption(option: ARGV[0], argument: ARGV[1])
     else
