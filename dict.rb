@@ -34,9 +34,15 @@ def log(point: '', error: false, finished: false)
 end
 
 def search(term: '')
-  log(point: "Searching for #{argument}")
+  log(point: "Searching for #{term}")
   dict_string = read_dict
-
+  dictionary = parse_dict(dict_string: dict_string)
+  matches = dictionary.select do |key, entry|
+    key.match?(term)
+  end
+  matches.each do |key, entry|
+    puts key
+  end
   log(point: "Completed search for #{argument}", finished: true)
 end
 
