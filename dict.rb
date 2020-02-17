@@ -26,7 +26,7 @@ end
 def log(point: '', error: false, finished: false)
   logfile = File.open(PATHS[:LOG_PATH], 'a')
   if error
-    logfile.write("[#{Time.now}] - ERROR: #{point.message} | inputs: #{ARGV} | paths: #{PATHS} | trace: #{point.backtrace}\n")
+    logfile.write("[#{Time.now}] - ERROR: #{point.message} | inputs: #{ARGV} | paths: #{PATHS} | trace: #{point.backtrace}\n\n")
   else
     logfile.write("[#{Time.now}] - DEBUG: point reached: #{point}\n#{finished ? "\n" : nil}")
   end
@@ -43,7 +43,7 @@ def search(term: '', keys_only: true)
   matches.each do |key, entry|
     puts "#{key}#{":\n#{entry[:value]}\n\n" unless keys_only}"
   end
-  log(point: "Completed search for #{argument}", finished: true)
+  log(point: "Completed search for #{term}", finished: true)
 end
 
 def handleOption(option: '', argument: '')
