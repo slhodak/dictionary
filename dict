@@ -1,6 +1,8 @@
 #!/bin/bash
 
+CMD="ruby ~/lib/dictionary/dict.rb"
+
 if [ -z "$2" ]
-then bash -c "ruby ~/lib/dictionary/dict.rb $1"
-else bash -c "ruby ~/lib/dictionary/dict.rb $1 $2"
+then bash -c "${CMD} '$1'"
+else bash -c "${CMD} $1 '$2'"
 fi

@@ -74,30 +74,32 @@ def handleSpecialCommands(argument: '')
 end
 
 begin
-  if handleSpecialCommands(argument: ARGV[0])
+  argument = ARGV[0].gsub("'", '')
+  puts argument
+  if handleSpecialCommands(argument: argument)
     return
   end
 
-  if ARGV[0].match?(/^-/)
+  if argument.match?(/^-/)
     if ARGV[1]
-      handleOption(option: ARGV[0], argument: ARGV[1])
+      handleOption(option: argument, argument: ARGV[1])
     else
       puts 'No arguments given.'
     end
   else
-    log(point: "Looking for #{ARGV[0]}")
+    log(point: "Looking for #{argument}")
     dict_string = read_dict
 
     dictionary = parse_dict(dict_string: dict_string)
 
-    unless dictionary[ARGV[0].downcase]
-      puts "No entry '#{ARGV[0]}' in the dictionary. To add it, open the dictionary with the command 'dict open'"
-      log(point: "Found no entry for #{ARGV[0]}--did you spell it right?", finished: true)
+    unless dictionary[argument.downcase]
+      puts "No entry '#{argument}' in the dictionary. To add it, open the dictionary with the command 'dict open'"
+      log(point: "Found no entry for #{argument}--did you spell it right?", finished: true)
       return
     end
 
-    puts "#{dictionary[ARGV[0].downcase][:key]}:\n#{dictionary[ARGV[0].downcase][:value]}"
-    log(point: "Printed result for '#{ARGV[0]}'. Happy Studying!", finished: true)
+    puts "#{dictionary[argument.downcase][:key]}:\n#{dictionary[argument.downcase][:value]}"
+    log(point: "Printed result for '#{argument}'. Happy Studying!", finished: true)
   end
 rescue StandardError => ex
   log(point: ex, error: true)
