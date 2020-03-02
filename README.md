@@ -24,7 +24,8 @@ To see the debug logs:
 ```
 Tranche:  
 One of a series of payments to be paid out over a specified period,
-subject to certain performance metrics being achieved. It is commonly used in venture capital (VC) circles to refer to incremental payouts of a fundraising round.
+subject to certain performance metrics being achieved. It is commonly
+used in venture capital (VC) circles to refer to incremental payouts of a fundraising round.
 
 Another definition:  
 This would be the second definition in the dictionary. And so on...  
