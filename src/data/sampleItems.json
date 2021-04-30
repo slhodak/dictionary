@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Task",
+    "definition": "An object like a to-do item"
+  },
+  {
+    "name": "Log",
+    "definition": "Like a to-do item but completed. These are not a type from Salesforce."
+  },
+  {
+    "name": "Account",
+    "definition": "A person, a customer, a contact"
+  },
+  {
+    "name": "CUDL",
+    "definition": "The sync process for fast-changing items that are relevant because they are will happen soon or did happen recently"
+  },
+  {
+    "name": "TrickleSync",
+    "definition": "The sync process for slower-changing items, including Contacts and Opportunities."
+  }
+]

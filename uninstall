@@ -1,6 +1,0 @@
-#!/bin/bash
-
-[[ -f ~/bin/dict ]] && rm ~/bin/dict
-[[ -d ~/lib/dictionary ]] && rm -r ~/lib/dictionary
-[[ -d ~/var/dictionary ]] && rm -r ~/var/dictionary
-[[ -d ~/log/dictionary ]] && rm -r ~/log/dictionary

@@ -1,2 +1,9 @@
+### Build
+bundle.js
+
+### Node
+node_modules
+
+### Hidden
 .*
-todo.txt
+*.txt
